@@ -1,15 +1,19 @@
 import React from "react";
 
-function Stock() {
+function Stock({ stock, onStockClick, action }) {
   return (
-    <div>
-      <div className="card">
-        <div className="card-body">
-          <h5 className="card-title">{"Compant Name"}</h5>
-          <p className="card-text">{"Stock Price"}</p>
-        </div>
+    <div className="stock" onClick={() => onStockClick(stock)}>
+      <div className="stock-info">
+        <h3>{stock.ticker}</h3>
+        <p>{stock.name}</p>
+        <p>Price: ${stock.price}</p>
+        <p>Type: {stock.type}</p>
+      </div>
+      <div className="stock-action">
+        <button>{action}</button>
       </div>
     </div>
   );
 }
+
 export default Stock;
